@@ -11,6 +11,8 @@ import { environment } from 'environments/environment';
 // App is our top level component
 import { AppComponent } from './app.component';
 
+import { LoadDataService } from './load-data.service';
+
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -40,7 +42,8 @@ interface StoreType {
    * Expose our Services and Providers into Angular's dependency injection.
    */
   providers: [
-    environment.ENV_PROVIDERS
+    environment.ENV_PROVIDERS,
+    LoadDataService
   ]
 })
 export class AppModule {}

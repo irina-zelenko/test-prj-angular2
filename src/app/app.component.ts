@@ -1,25 +1,33 @@
 /**
  * Angular 2 decorators and services
  */
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoadDataService } from './load-data.service';
+
 /**
  * App Component
  * Top Level Component
  */
 @Component({
   selector: 'app',
-  encapsulation: ViewEncapsulation.None,
   styles: [
     require('./app.component.less')
   ],
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
+  public title = 'Table of colors (HEX)';
+  private colorsArr = [];
   constructor(
-  ) {}
+    private loadDataService: LoadDataService) {}
+    ngOnInit() {
+      this.getColors();
+    }
 
-  public ngOnInit() {
-    console.log('Initial App State');
+  private getColors(): void {
+    this.loadDataService.getJSON().subscribe((data) => {
+      this.colorsArr = data.colorsArray;
+      console.log( this.colorsArr );
+    });
   }
-
 }

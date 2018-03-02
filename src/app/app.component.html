@@ -1,1 +1,37 @@
-<h1>Hello</h1>
+<div class="main">
+  <div class="layout-table">
+    <div class="layout-cell">
+      <div class="container">
+        <h1 class="table-title">{{title}}</h1>
+
+        <div class="color-table-block row">
+          <table class="col-lg-8 col-md-8">
+            <thead>
+              <tr>
+                <th>
+                  Number
+                </th>
+                <th>
+                  Color name
+                </th>
+                <th>
+                  HEX
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let color of colorsArr; let i = index" [attr.data-index]="i">
+                <td>{{i + 1}}</td>
+                <td>{{color.colorName}}</td>
+                <td style.background = "{{color.hexValue}}"></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
