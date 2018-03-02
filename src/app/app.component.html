@@ -2,33 +2,32 @@
   <div class="layout-table">
     <div class="layout-cell">
       <div class="container">
-        <h1 class="table-title">{{title}}</h1>
+        <div class="">
+          <h1 class="table-title">{{title}}</h1>
 
-        <div class="color-table-block row">
-          <table class="col-lg-8 col-md-8">
-            <thead>
-              <tr>
-                <th>
-                  Number
-                </th>
-                <th>
+          <div class="color-table-block row">
+            <table class="table table-bordered table-dark">
+              <thead>
+              <tr  class="row">
+                <th class="col-lg-5 col-xl-5 col-md-6 col-sm-6 col-12">
                   Color name
                 </th>
-                <th>
+                <th class="col-lg-7 col-xl-7 col-md-6 col-sm-6 col-12">
                   HEX
                 </th>
               </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let color of colorsArr; let i = index" [attr.data-index]="i">
-                <td>{{i + 1}}</td>
-                <td>{{color.colorName}}</td>
-                <td style.background = "{{color.hexValue}}"></td>
+              </thead>
+              <tbody>
+              <tr *ngFor="let color of colorsArr" class="row">
+                <td class="col-lg-5 col-xl-5 col-md-6 col-sm-6 col-12">{{color.colorName | uppercase }}</td>
+                <td class="col-lg-7 col-xl-7 col-md-6 col-sm-6 col-12" style.background = "{{color.hexValue}}"></td>
               </tr>
-            </tbody>
-          </table>
+              </tbody>
+            </table>
 
+          </div>
         </div>
+
       </div>
     </div>
   </div>
